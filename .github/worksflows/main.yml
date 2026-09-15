@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  myapp:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -23,8 +23,8 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Build and push Docker image
-      uses: docker/build-push-action@v6
+      uses: docker/build-push-action@v7.3.0
       with:
         context: .
         push: true
-        tags: ${{ secrets.DOCKER_USERNAME }}zerekis/express-app:latest
+        tags: ${{ secrets.DOCKER_USERNAME }}/express-app:latest
